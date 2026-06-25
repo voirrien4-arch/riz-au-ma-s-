@@ -1,0 +1,254 @@
+/* styles.css - Gold-noir AI Design System */
+
+:root {
+  color-scheme: dark;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+html.light {
+  color-scheme: light;
+}
+
+html.light body {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; }
+body.app-active { overflow: hidden; }
+button, input, textarea, select { font: inherit; }
+a { color: inherit; text-decoration: none; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.15); }
+
+.input-field {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.05);
+  color: #f1f5f9;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-field::placeholder { color: rgba(148,163,184,0.6); }
+
+.input-field:focus {
+  border-color: rgba(245,158,11,0.5);
+  box-shadow: 0 0 0 3px rgba(245,158,11,0.1);
+}
+
+html.light .input-field {
+  background: rgba(0,0,0,0.03);
+  border-color: rgba(0,0,0,0.12);
+  color: #0f172a;
+}
+
+html.light .input-field:focus {
+  border-color: rgba(245,158,11,0.5);
+  box-shadow: 0 0 0 3px rgba(245,158,11,0.08);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(245,158,11,0.25);
+}
+
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(245,158,11,0.35); }
+.btn-primary:active { transform: translateY(0); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+.btn-admin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.75rem;
+  background: rgba(245,158,11,0.15);
+  border: 1px solid rgba(245,158,11,0.3);
+  color: #f59e0b;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-admin:hover { background: rgba(245,158,11,0.25); }
+
+.btn-send {
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #0f172a;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(245,158,11,0.25);
+}
+
+.btn-send:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(245,158,11,0.35); }
+.btn-send:active { transform: translateY(0); }
+
+.btn-danger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.75rem;
+  background: rgba(239,68,68,0.15);
+  border: 1px solid rgba(239,68,68,0.3);
+  color: #ef4444;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-danger:hover { background: rgba(239,68,68,0.25); }
+
+.btn-admin-action {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  transition: all 0.2s;
+}
+
+.btn-admin-action:hover { background: rgba(255,255,255,0.1); }
+
+.tab-active {
+  background: rgba(255,255,255,0.08);
+  color: #f1f5f9;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.msg-user {
+  background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(6,182,212,0.1));
+  border: 1px solid rgba(245,158,11,0.2);
+}
+
+.msg-assistant {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+html.light .msg-user {
+  background: linear-gradient(135deg, rgba(245,158,11,0.1), rgba(6,182,212,0.06));
+  border-color: rgba(245,158,11,0.2);
+}
+
+html.light .msg-assistant {
+  background: rgba(0,0,0,0.03);
+  border-color: rgba(0,0,0,0.08);
+}
+
+.code-block {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.code-header {
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+html.light .code-block {
+  background: rgba(0,0,0,0.04);
+  border-color: rgba(0,0,0,0.1);
+}
+
+.inline-code {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+.typing-dot {
+  animation: typing-bounce 1.2s ease-in-out infinite;
+}
+
+@keyframes typing-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-6px); opacity: 1; }
+}
+
+.animate-maintenance-bar {
+  animation: maintenance-bar 3s ease-in-out infinite;
+}
+
+@keyframes maintenance-bar {
+  0% { width: 0%; margin-left: 0%; }
+  50% { width: 60%; margin-left: 20%; }
+  100% { width: 0%; margin-left: 100%; }
+}
+
+.sidebar-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 40;
+}
+
+.sidebar-container.open {
+  transform: translateX(0);
+}
+
+@media (min-width: 1024px) {
+  .sidebar-container {
+    position: relative;
+    transform: none;
+    z-index: auto;
+  }
+}
+
+html.light #chatArea { background: #f8fafc; }
+html.light .sidebar-container { background: rgba(255,255,255,0.95); border-color: rgba(0,0,0,0.08); }
+html.light #appHeader > div { background: rgba(255,255,255,0.9); border-color: rgba(0,0,0,0.08); }
+html.light #inputBar { background: rgba(255,255,255,0.9); border-color: rgba(0,0,0,0.08); }
+html.light #inputBar textarea { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.1); color: #0f172a; }
+html.light .msg-user p { color: #1e293b; }
+html.light .msg-assistant p { color: #334155; }
+html.light .msg-assistant div { color: #334155; }
+
+@media (max-width: 640px) {
+  .input-field { font-size: 16px; }
+}
+
+::selection {
+  background: rgba(245,158,11,0.3);
+  color: white;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(245,158,11,0.5);
+  outline-offset: 2px;
+}
+
+html, body {
+  transition: background-color 0.3s, color 0.3s;
+}

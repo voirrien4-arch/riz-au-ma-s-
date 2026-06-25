@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Gold-noir AI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          keyframes: {
+            'fade-in': { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+            'slide-up': { '0%': { opacity: '0', transform: 'translateY(12px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+            'slide-down': { '0%': { opacity: '0', transform: 'translateY(-12px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+          },
+          animation: {
+            'fade-in': 'fade-in 0.3s ease-out',
+            'slide-up': 'slide-up 0.3s ease-out',
+            'slide-down': 'slide-down 0.3s ease-out',
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-slate-950 text-slate-100 font-sans">
+
+  <!-- Login Screen -->
+  <div id="loginScreen">
+    <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+      <div class="text-center">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-amber-500/20 to-cyan-500/20 border border-amber-500/30 flex items-center justify-center">
+          <span class="text-xl font-black bg-gradient-to-r from-amber-400 to-cyan-400 bg-clip-text text-transparent">GN</span>
+        </div>
+        <div class="w-8 h-8 mx-auto border-2 border-amber-500/30 border-t-amber-500 rounded-full animate-spin"></div>
+        <p class="text-slate-500 text-sm mt-3">Chargement...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main App -->
+  <div id="mainApp" class="hidden">
+    <div class="flex h-screen overflow-hidden">
+      <!-- Sidebar -->
+      <aside id="sidebar" class="sidebar-container w-64 flex-shrink-0 border-r border-white/5 bg-slate-900/60 backdrop-blur-lg flex flex-col lg:relative lg:translate-x-0">
+        <div class="p-4 border-b border-white/5">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500/20 to-cyan-500/20 border border-amber-500/30 flex items-center justify-center shadow-lg shadow-amber-500/10">
+              <span class="text-xs font-black bg-gradient-to-r from-amber-400 to-cyan-400 bg-clip-text text-transparent">G</span>
+            </div>
+            <span class="text-sm font-bold text-white">Gold-noir AI</span>
+          </div>
+        </div>
+        <div id="sidebarContent" class="flex-1 overflow-y-auto"></div>
+      </aside>
+
+      <!-- Overlay mobile -->
+      <div id="sidebarOverlay" class="sidebar-overlay fixed inset-0 bg-black/50 z-30 hidden lg:hidden"></div>
+
+      <!-- Main Content -->
+      <div class="flex-1 flex flex-col min-w-0">
+        <div id="appHeader"></div>
+        <div id="chatArea" class="flex-1 overflow-y-auto"></div>
+        <div id="inputBar" class="border-t border-white/5 bg-slate-900/60 backdrop-blur-lg p-3 sm:p-4">
+          <form id="chatForm" class="flex gap-2 sm:gap-3 max-w-4xl mx-auto items-end">
+            <div class="flex-1 relative">
+              <textarea id="chatInput" rows="1" placeholder="Écris ton message..." class="input-field resize-none min-h-[44px] max-h-[160px] pr-3"></textarea>
+            </div>
+            <button type="submit" id="sendBtn" class="btn-send flex-shrink-0 w-11 h-11 flex items-center justify-center" aria-label="Envoyer">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19V5M5 12l7-7 7 7"/>
+              </svg>
+            </button>
+          </form>
+          <p class="text-[10px] text-slate-600 text-center mt-2 max-w-4xl mx-auto">
+            Gold-noir AI peut faire des erreurs. Vérifie les informations importantes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modalContainer"></div>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
